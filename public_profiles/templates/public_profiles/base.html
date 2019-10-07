@@ -1,0 +1,42 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FrauenLoop Classifieds</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6e13b701f6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'public_profiles/main.css' %}">
+</head>
+<body>
+        
+    <div class="header">
+    <h1>FRAUENLOOP CLASSIFIED ADS</h1>
+</div>
+  <div class="login-page"> 
+  <div class="form">
+      <form class="register-form" action="/public_profiles/views.py">
+        <input type="text" placeholder="Username" required />  
+        <input type="password" placeholder="Password"/>  
+        <input type="email" placeholder="Email"/>            
+        <button>Create your profile</button>
+        <p class="message">Already registered?<a href="#">Log in</a></p>
+        </form>
+
+        <form class="login-form">
+        <input type="text" placeholder="Username" id="username"/>
+        <input type="password" placeholder="Password" id="password"/>
+        <!-- <button id="submit-button">Log in</button> -->
+        <input type="submit" name="submit-form" id="submit-form">
+        <p class="message">Not registered yet? <a href="#">Register</a></p>
+        </form>
+        
+</div>
+</div>
+
+<script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script src="app.js"></script>
+</body>
+</html>
