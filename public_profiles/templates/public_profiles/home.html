@@ -1,0 +1,11 @@
+{% extends "public_profiles/base.html" %}
+{% block content %}
+    {% for profile in profiles %}
+        <h1>{{ profile.username }}</h1>
+        <p>Skills: {{ profile.skills }}</p>
+        <p>{{ profile.username }} doesn't like {{ profile.dislikes}}</p>
+        <p>Availability: {{ profile.availability }}</p>
+    {%  endfor %}
+ {% endblock content %}
+
+
