@@ -14,9 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
 from django.urls import path, include
+#from django.conf import settings
+#from django.conf.urls.static import static
+from private_profiles import views as private_views
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('public_profiles.urls')),
+    path('admin/', admin.site.urls),    # admin route
+    path('register/', private_views.register, name='register'), # register route
+    path('profiles_developer/', private_views.profiles_developer, name='profiles-developer'), # developers' profiles route
+    path('login/', auth_views.LoginView.as_view(template_name='private_profiles/login.html'), name='login'), # template_name > to avoid default route in registration dir (that we do not have)
+    path('logout/', auth_views.LogoutView.as_view(template_name='private_profiles/logout.html'), name='logout'),
+    path('', include('public_profiles.urls')), # "inheriting" from public_profiles app, there is no urls.py in private_profiles!
 ]

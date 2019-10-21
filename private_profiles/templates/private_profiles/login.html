@@ -1,0 +1,27 @@
+{% extends 'public_profiles/base.html' %} <!-- this file is based on all the code found in base.html -->
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="login-page pb-5">
+    <div class="content-section">
+        <form class="form" method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Access your profile</legend>
+                {{ form|crispy }} <!-- see explanation in regsiter.html -->
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Log in!</button>
+            </div>
+            <div class="message" class="border-top pb-3">
+                <p>Not registered yet? <a href="{% url 'register' %}">Register</a></p>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script src="app.js"></script>
+
+{% endblock content %}

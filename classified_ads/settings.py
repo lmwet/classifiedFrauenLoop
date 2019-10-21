@@ -31,8 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'public_profiles.apps.PublicProfilesConfig',        # public profiles app based on apps class in respective apps.py file
+    'private_profiles.apps.PrivateProfilesConfig',      # private profiles app based on apps class in respective apps.py file
+    'crispy_forms',                                     # added crispy forms among the apps
     'django.contrib.admin',
-    'public_profiles.apps.PublicProfilesConfig',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -119,3 +121,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_REDIRECT_URL = 'profiles-developer'   # after login user is directed to her profile site
+
+LOGIN_URL = 'login'     # as it is required to log in before accessing the private profile route, 
+                        # we used a decorator in the views.py file profiles function. In order to 
+                        # avoid a 404, the user is automatically directed to the login page if she 
+                        # tries to enter the /profiles_developer/-route
