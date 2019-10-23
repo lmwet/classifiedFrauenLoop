@@ -1,3 +1,5 @@
+{% load static %} <!-- loading static folder with images and css file THIS FILE IS NEVER RENDERED AS SUCH-->
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,6 +12,13 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    
+    {% if title%}
+    <title>Classified Ads - {{ title }}</title>
+    {% else %}
+    <title>Classified Ads</title>
+    {% endif %}
+
     <script
       src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
@@ -20,7 +29,7 @@
       href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'public_profiles/main.css' %}">
     <title>FrauenLoop Classifieds</title>
   </head>
 
@@ -55,49 +64,37 @@
       <h1>FRAUENLOOP CLASSIFIED ADS</h1>
     </div>
 
-    <!-- <div class="container">
-            <div class="row">
-                <div class="col-md-7">
-                   <p class="text-left">FrauenLoop is a community of technology professionals who understand how tech defines nearly every aspect of modern life, including how we learn, work, hire, and socialize. We are driving digitalization, and we want to see fewer machine learning algorithms, software applications, and product test plans that don’t consider women or any other type of diversity. Ours is a diverse, inter-connected world. But looking at many tech organizations, you would never know it.</p>
-                </div>
+    {% if messages %}
+      {% for message in messages %}   <!-- if there are alerts for the user they are displayed here-->
+          <div class="alert alert-{{ message.tags }}">
+              {{ message }}
+          </div>
+      {% endfor %}
+    {% endif %}
 
-                <div class="col-md-5">
-
-                    <div class="row">
-                        <div class="col-md-6">
-                             <h2>SIGN UP FORM</h2> 
-                        </div>
-
-                        <div class="col-md-6">
-                            <span class=" glyphicon glyphicon-pencil"></span></div>           
-                </div>
-                <hr>
-                <div class="row">
-                    <label class="label col-md-2 control-label">Email</label>
-                </div>
-            </div>
-</div>           -->
-
-    <div class="login-page">
+    <!-- <div class="login-page">
       <div class="form">
         <form class="register-form" action="/views.py">
           <input type="text" placeholder="Username" />
           <input type="password" placeholder="Password" />
           <input type="email" placeholder="Email" />
-          <!--<button>Create your profile</button>-->
-          <input type="submit" name="submit-form" />
+          <!-- <input type="submit" name="submit-form" />
           <p class="message">Already registered?<a href="#">Log in</a></p>
-        </form>
+        </form> -->
 
-        <form class="login-form" action="/views.py">
+        <!-- <form class="login-form" action="/views.py">
           <input type="text" placeholder="Username" id="username" />
           <input type="password" placeholder="Password" id="password" />
-          <!-- <button id="submit-button">Log in</button> -->
           <input type="submit" name="submit-form" id="submit-form" />
           <p class="message">Not registered yet? <a href="#">Register</a></p>
         </form>
       </div>
+    </div> -->
+
+    <div class="container mt-4">
+      {% block content %}{% endblock %} <!-- here comes the content in all the other files that are based on this file-->
     </div>
+    
     <footer>
       <p>2019</p>
     </footer>

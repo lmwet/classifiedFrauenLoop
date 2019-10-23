@@ -122,6 +122,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'profiles-developer'   # after login user is directed to her profile site
@@ -130,3 +137,4 @@ LOGIN_URL = 'login'     # as it is required to log in before accessing the priva
                         # we used a decorator in the views.py file profiles function. In order to 
                         # avoid a 404, the user is automatically directed to the login page if she 
                         # tries to enter the /profiles_developer/-route
+
