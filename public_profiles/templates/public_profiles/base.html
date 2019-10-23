@@ -50,13 +50,17 @@
         <li>
           <a href="{% url 'classified-about' %}">About</a>
         </li>
-        <li>
-          <a href="{% url 'register' %}">Register</a>
-        </li>
-        <li>
-          <a href="{% url 'login' %}">Log In</a>
-        </li>
+        
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'profiles-developer' %}">Profile</a> </li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+        {% else %}
+          <li><a href="{% url 'register' %}">Register</a> </li>
+          <li><a href="{% url 'login' %}">Login</a></li>
+        {% endif %} 
       </ul>
+      
+
       <div class="burger">
         <div class="line1"></div>
         <div class="line2"></div>
