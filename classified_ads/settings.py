@@ -120,14 +120,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static/' # I've also tried giving the URL '/public_profiles/static/' in case it needed me to be more explicit. Didn't work.
 
-STATICFILES_DIRS = [
+STATIC_ROOT = [
     os.path.join(BASE_DIR, "static"),
 ]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

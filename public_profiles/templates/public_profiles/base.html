@@ -1,6 +1,6 @@
-{% load staticfiles %}
+{% load static %}
 <!--Custom JS-->
-<script src="{% static "public_profiles/js/app.js" %}"></script>
+<script src="{% static 'public_profiles/js/app.js' %}"></script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,13 +44,9 @@
 
       <!--is there a way of making the image a background image using bootstrap?-->
       <ul class="nav-links">
-        <li>
-          <a href="{% url 'classified-home' %}">Home</a>
-        </li>
-        <li>
-          <a href="{% url 'classified-about' %}">About</a>
-        </li>
-        
+        <li><a href="{% url 'classified-home' %}">Home</a></li>
+        <li><a href="{% url 'classified-about' %}">About</a></li>
+
         {% if user.is_authenticated %}
           <li><a href="{% url 'profiles-developer' %}">Profile</a> </li>
           <li><a href="{% url 'logout' %}">Logout</a></li>
@@ -58,9 +54,9 @@
           <li><a href="{% url 'register' %}">Register</a> </li>
           <li><a href="{% url 'login' %}">Login</a></li>
         {% endif %} 
+
       </ul>
       
-
       <div class="burger">
         <div class="line1"></div>
         <div class="line2"></div>
