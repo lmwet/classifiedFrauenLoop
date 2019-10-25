@@ -62,7 +62,7 @@ footer p{
 }
     
 .header {
-    background-image: url("static/public_profiles/pic.jpg"); /* How do we link this in django? */
+    background-image: url("/static/public_profiles/pic.jpg"); /* How do we link this in django? */
     background-size: cover;
     background-position:center;
     padding: 60px;
