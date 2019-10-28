@@ -120,7 +120,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static/' # I've also tried giving the URL '/public_profiles/static/' in case it needed me to be more explicit. Didn't work.
+
+STATIC_ROOT = [
+    os.path.join(BASE_DIR, "static"),
+]
+
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -130,3 +135,4 @@ LOGIN_URL = 'login'     # as it is required to log in before accessing the priva
                         # we used a decorator in the views.py file profiles function. In order to 
                         # avoid a 404, the user is automatically directed to the login page if she 
                         # tries to enter the /profiles_developer/-route
+
