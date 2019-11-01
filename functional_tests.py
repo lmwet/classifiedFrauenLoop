@@ -14,6 +14,10 @@ class NewVisitorTest(unittest.TestCase):
     def test_frauenlooper_can_access_classified(self):
         #Ms X found out about Frauenloop classified and wants to check it out
         self.browser.get('http://localhost:8000')
+        self.assertIn('Frauenloop', self.browser.title)  
+        self.fail('Finish the test!')
 
 
-        #This does not react when I run this on cmd - why??
+
+    if __name__ == '__main__':  
+        unittest.main(warnings='ignore')  

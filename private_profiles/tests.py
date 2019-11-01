@@ -33,17 +33,18 @@ class ProfilesPageTest(TestCase):
         response = profiles_developer(request)
         self.assertContains(response, 'Logout')
 
-    # def test_profiles_developer_url_returns_correct_html(self):
+    def test_profiles_developer_url_returns_correct_html(self):
 
-    #     class MockUser:
-    #         is_authenticated = True
+        class MockUser:
+            is_authenticated = True
 
-    #     request = self.client.get('/profiles_developer/')
-    #     request.user = MockUser()
-        # self.assertTemplateUsed(response, 'private_profiles/profiles_developer.html', 'public_profiles/base.html')
+        request = self.client.get('/profiles_developer/')
+        request.user = MockUser()
+        response = profiles_developer(request)
+        self.assertTemplateUsed(response, 'private_profiles/profiles_developer.html', 'public_profiles/base.html')
+
         # When I run this case, I receive the error: 
         # ValueError: assertTemplateUsed() and assertTemplateNotUsed() are only usable on responses fetched using the Django test Client.
-
 
 
 
