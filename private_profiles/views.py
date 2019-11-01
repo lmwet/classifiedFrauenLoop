@@ -15,6 +15,6 @@ def register(request):
         form = ClassifiedRegistrationForm()     # if form is not filled out correctly form is rendered again
     return render(request, 'private_profiles/register.html', {'form': form}) # in the register route with feedback
 
-@login_required     # user needs to be logged in in order to accedd her profile site
+@login_required     # user needs to be logged in in order to access her profile site
 def profiles_developer(request):
     return render(request, 'private_profiles/profiles_developer.html') 
