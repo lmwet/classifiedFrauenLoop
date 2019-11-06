@@ -8,7 +8,11 @@
         <div class="media-body">
             <h2 class="account-heading">{{ user.username }}</h2>
             <p class="text-secondary">{{ user.email }}</p>
-            <p class="text-secondary">{{ user.bio }}</p>
+            <p class="text-secondary">{{ user.skills }}</p>
+            <p class="text-secondary">{{ user.languages }}</p>
+            <p class="text-secondary">{{ user.likes }}</p>
+            <p class="text-secondary">{{ user.dislikes }}</p>
+            <p class="text-secondary">{{ user.github }}</p>
         </div>
         </div>
         <form method="POST" enctype="multipart/form-data"> 
@@ -28,5 +32,7 @@
 {% endblock content %}
 
 
+
+fields = ['skills', 'languages', 'likes', 'dislikes', 'github', 'image']
 
     
