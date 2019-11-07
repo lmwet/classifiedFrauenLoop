@@ -41,11 +41,3 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta():
         model = Profile
         fields = ['skills', 'languages', 'likes', 'dislikes', 'github', 'image']
-
-
-
-        # skills = models.CharField(max_length=250, blank=True)
-    # languages = models.CharField(max_length=250, blank=True)
-    # likes = models.CharField(max_length=250, blank=True)
-    # dislikes = models.CharField(max_length=250, blank=True)
-    # github
