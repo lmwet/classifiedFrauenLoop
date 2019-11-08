@@ -30,7 +30,7 @@ def profiles_developer(request):
             u_form.save()
             p_form.save()
             messages.success(request, f'Your account has been updated.')
-            return redirect('profiles_developer') #tried private_profiles/profiles_developer - also didn't work
+            return redirect('profiles-developer') #tried private_profiles/profiles_developer - also didn't work
             
     else:
         u_form = UserUpdateForm(instance=request.user) 
