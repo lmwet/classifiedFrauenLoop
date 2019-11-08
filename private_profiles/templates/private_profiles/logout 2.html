@@ -1,0 +1,10 @@
+{% extends "public_profiles/base.html" %} <!-- this file is based on all the code found in base.html -->
+{% block content %}
+    <h2>You are now logged out</h2>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            <a class='ml-2' href='{% url "login" %}'>Do you want to log in again?</a>
+        </small>
+    </div>
+
+{% endblock %}
