@@ -36,10 +36,8 @@ class UserUpdateForm(forms.ModelForm):
         fields = ['username', 'email']
 
 
-# import Profile (see above)
-
 class ProfileUpdateForm(forms.ModelForm):
 
     class Meta():
         model = Profile
-        fields = ['bio', 'image']
+        fields = ['skills', 'languages', 'likes', 'dislikes', 'github', 'image']
