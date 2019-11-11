@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.models import User
+from private_profiles.models import Profile
 
 profiles = [                                    # dummy data for landing site
     {
@@ -19,7 +20,7 @@ profiles = [                                    # dummy data for landing site
 
 def home(request):
     context = {
-        'profiles': User.objects.all()
+        'profiles': Profile.objects.all()
     }
     return render(request, 'public_profiles/home.html', context)
 
