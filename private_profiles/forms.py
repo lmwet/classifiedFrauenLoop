@@ -9,14 +9,6 @@ class ClassifiedRegistrationForm(UserCreationForm):
                     widget=forms.TextInput(attrs={'placeholder': 'Username'}))  # creating fields in addition to in-built User fields 
     email = forms.EmailField(label='', 
                     widget=forms.TextInput(attrs={'placeholder': 'Email'}))     # all fields habe a placeholder, label (above field) remains empty
-    # skills = forms.CharField(label='', 
-    #                 widget=forms.TextInput(attrs={'placeholder': 'Skills'}))
-    # experience = forms.CharField(label='', 
-    #                 widget=forms.TextInput(attrs={'placeholder': 'Experience'}))
-    # dislikes = forms.CharField(label='', 
-    #                 widget=forms.TextInput(attrs={'placeholder': 'What I dislike'}))
-    # availability = forms.CharField(label='', 
-    #                 widget=forms.TextInput(attrs={'placeholder': 'Availability'}))
     password1 = forms.CharField(label='', 
                     widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
     password2 = forms.CharField(label='', 
@@ -40,4 +32,4 @@ class ProfileUpdateForm(forms.ModelForm):
 
     class Meta():
         model = Profile
-        fields = ['skills', 'languages', 'likes', 'dislikes', 'github', 'image']
+        fields = ['skills', 'languages', 'likes', 'dislikes', 'github']
