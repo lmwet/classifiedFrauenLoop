@@ -4,20 +4,23 @@
 <!-- makes forms look pretty -->
 {% block content %}
 <!-- all code that is unique to register.html is inserted between the opening and closing content blocks-->
+<div class="login-page pb-5">
+    <div class="content-section">
+        <form class="form" method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Join Classified Ads!</legend>
+                {{ form|crispy }}
+                <!-- takes the python code from views.py (see > "return render(request, 'private_profiles/register.html', {'form': form})") as well as the in-built forms of django and inserts them here-->
+            </fieldset>
 
-<div class="content-section">
-    <form method="POST">
-        {% csrf_token %}
-        <fieldset class="form input">
-            <legend class="border-bottom mb-4">Join Classified Ads!</legend>
-            {{ form|crispy }}
-            <!-- takes the python code from views.py (see > "return render(request, 'private_profiles/register.html', {'form': form})") as well as the in-built forms of django and inserts them here-->
-            <button class="btn btn-outline-info" type="submit">Sign up now</button>
-        </fieldset>
-        <div class="border-top pt-3 message">
-            <a class='ml-2' href='{% url "login" %}'>Already have an account?</a>
-        </div>
-    </form>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Sign up now</button>
+            </div>
+            <div class="border-top pt-3 message">
+                <a class='ml-2' href='{% url "login" %}'>Already have an account?</a>
+            </div>
+        </form>
+    </div>
 </div>
-
 {% endblock %}
