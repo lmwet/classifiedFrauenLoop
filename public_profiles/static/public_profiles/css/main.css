@@ -193,3 +193,35 @@ footer p {
         transform: translateX(0px);
     }
 }
+
+.profile-item h1 {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+
+}
+
+.profile-item p {
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    /* word-wrap: break-word; */
+    word-break: break-all;
+
+}
+
+.profile-items-container {
+
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.profile-item {
+    width: 33%;
+    padding: 0px 30px;
+    /* border: 1px solid red; */
+    margin-bottom: 30px;
+
+}
