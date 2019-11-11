@@ -3,21 +3,6 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from private_profiles.models import Profile
 
-profiles = [                                    # dummy data for landing site
-    {
-        'Username': 'Superduck',
-        'Skills': 'Python, Django, Flask',
-        'Dislikes': 'meat, ignorance',
-        'Availablity': 'Starting from January 2020'
-    },
-    {
-        'Username': 'Wonderspider',
-        'Skills': 'Javascript, Bootstrap, HTML',
-        'Dislikes': 'Antisemitism',
-        'Availablity': 'Starting from February 2020'
-    }
-]
-
 def home(request):
     context = {
         'profiles': Profile.objects.all()
