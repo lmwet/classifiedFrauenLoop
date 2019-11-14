@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'sendemail.apps.SendemailConfig',                   # for the contact service
     'public_profiles.apps.PublicProfilesConfig',        # public profiles app based on apps class in respective apps.py file
     'private_profiles.apps.PrivateProfilesConfig',      # private profiles app based on apps class in respective apps.py file
     'crispy_forms',                                     # added crispy forms among the apps
@@ -138,3 +139,5 @@ LOGIN_URL = 'login'     # as it is required to log in before accessing the priva
                         # avoid a 404, the user is automatically directed to the login page if she 
                         # tries to enter the /profiles_developer/-route
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# The email back end we will use
