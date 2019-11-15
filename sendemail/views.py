@@ -2,6 +2,8 @@ from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .forms import ContactForm
+from django.core.mail import EmailMessage
+
 
 def emailView(request):
     if request.method == 'GET':
@@ -13,7 +15,9 @@ def emailView(request):
             from_email = form.cleaned_data['from_email']
             message = form.cleaned_data['message']
             try:
-                send_mail(subject, message, from_email, ['admin@example.com'])
+                m_send = EmailMessage(subject, message, from_email, ['admin@example.com'], cc=['riekeland@gmail.com'], bcc=['riekeland@compnay.com'])
+                m_send.send()
+                #send_mail(subject, message, from_email, ['admin@example.com'], bcc=['riekeland@gmail.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return redirect('success')
