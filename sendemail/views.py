@@ -3,11 +3,14 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .forms import ContactForm
 from django.core.mail import EmailMessage
+from private_profiles.models import Profile
 
 
-def emailView(request):
+def emailView(request, id_user):
+    
     if request.method == 'GET':
         form = ContactForm()
+       
     else:
         form = ContactForm(request.POST)
         if form.is_valid():

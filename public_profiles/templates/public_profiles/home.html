@@ -3,12 +3,9 @@
 <div class="profile-items-container">
     {% for profile in profiles %}
     <div class="profile-item">
-        <h1>{{ profile.user }}</h1>
+        <h1><a href="{% url 'profile-details' profile.id %}">{{ profile.user }}</a></h1>
         <p>Skills: {{ profile.skills }}</p>
-        <p>Languages: {{ profile.languages }}</p>
-        <p>{{ profile.user }} doesn't like {{ profile.dislikes}}</p>
-        <p>{{ profile.user }} likes {{ profile.likes }}</p>
-        <p>Github: {{ profile.github }}</p>
+        
     </div>
     {%  endfor %}
 </div>
