@@ -28,5 +28,4 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='private_profiles/login.html'), name='login'), # template_name > to avoid default route in registration dir (that we do not have)
     path('logout/', auth_views.LogoutView.as_view(template_name='private_profiles/logout.html'), name='logout'),
     path('', include('public_profiles.urls')), # "inheriting" from public_profiles app, there is no urls.py in private_profiles!
-    path('', include('sendemail.urls')),  # for the contact feature
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

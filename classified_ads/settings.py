@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'sendemail.apps.SendemailConfig',                   # for the contact service
     'public_profiles.apps.PublicProfilesConfig',        # public profiles app based on apps class in respective apps.py file
     'private_profiles.apps.PrivateProfilesConfig',      # private profiles app based on apps class in respective apps.py file
     'crispy_forms',                                     # added crispy forms among the apps
