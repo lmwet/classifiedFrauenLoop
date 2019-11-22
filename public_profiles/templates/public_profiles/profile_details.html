@@ -13,15 +13,13 @@
 
 
         <h2>Contact {{ object.user }}</h1>
-        <form method="post">
+        <form method="POST">
             {% csrf_token %}
-            <fieldset>
-                {{ form|crispy }}
-                <h4>Where oh where is my form gone??</h4>
+            <fieldset class="form-group">
+                {{ c_form|crispy }}
             </fieldset>
-
-            <div class="form-actions">
-                <button type="submit">Send</button>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Contact</button>
             </div>
         </form>
 
