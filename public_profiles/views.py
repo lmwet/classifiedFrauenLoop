@@ -26,7 +26,7 @@ class ProfileDetailView(DetailView):
 def about(request):
     return render(request, 'public_profiles/about.html', {'title': 'About'})
 
-def emailView(request):
+def emailView(request, pk):
     if request.method == 'GET':
         c_form = ContactForm()
     else:
