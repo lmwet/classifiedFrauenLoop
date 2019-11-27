@@ -1,0 +1,29 @@
+{% extends "public_profiles/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="profile-items-container">
+
+    <div class="profile-item">
+        <h1>{{ object.user }}</h1>
+        <p>Skills: {{ object.skills }}</p>
+        <p>Languages: {{ object.languages }}</p>
+        <p>{{ object.user }} doesn't like {{ object.dislikes}}</p>
+        <p>{{ object.user }} likes {{ object.likes }}</p>
+        <p>Github: {{ object.github }}</p>
+
+
+        <h2>Contact {{ object.user }}</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Contact</button>
+            </div>
+        </form>
+
+    </div>
+
+</div>
+{% endblock content %} 
