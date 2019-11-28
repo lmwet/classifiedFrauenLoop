@@ -23,7 +23,13 @@ class ProfileDetailView(DetailView):
     model = Profile
     template_name = 'public_profiles/profile_details.html'
 
-    def emailView(request, pk):
+    def get(self, request, pk):
+        self.object = self.get_object()
+        context = self.get_context_data(object=self.object)
+        self.emailView(request, pk)
+        return self.render_to_response(context)
+
+    def emailView(self, request, pk):
         if request.method == 'GET':
             form = ContactForm()
         else:
