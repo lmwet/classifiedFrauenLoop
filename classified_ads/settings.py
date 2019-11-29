@@ -25,7 +25,7 @@ SECRET_KEY = '!h^!x4)o^h-c5@=g-lb(7y677_ud)z(ie1476eylf%&r0f4rzk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['frauenloop.pythonanywhere.com']
 
 
 # Application definition
