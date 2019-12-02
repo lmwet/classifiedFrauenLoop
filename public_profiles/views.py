@@ -23,22 +23,30 @@ class ProfileDetailView(DetailView):
     model = Profile
     template_name = 'public_profiles/profile_details.html'
 
-    def emailView(request, pk):
-        if request.method == 'GET':
-            form = ContactForm()
-        else:
-            form = ContactForm(request.POST)
-            if form.is_valid():
-                subject = form.cleaned_data['subject']
-                from_email = form.cleaned_data['from_email']
-                message = form.cleaned_data['message']
-                try:
-                    m_send = EmailMessage(subject, message, from_email, ['admin@example.com'], cc=['riekeland@gmail.com'], bcc=['riekeland@compnay.com'])
-                    m_send.send()
-                except BadHeaderError:
-                    return HttpResponse('Invalid header found.')
-                return redirect('success')
-        return render(request, "public_profiles/profile_details.html", {'form': form})
+    def get(self, request, pk):
+        self.object = self.get_object()
+        form = ContactForm()
+        context = self.get_context_data()
+        context['form'] = form
+        return self.render_to_response(context)
+
+
+    # def emailView(self, request, pk):
+    #     if request.method == 'GET':
+    #         form = ContactForm()
+    #     else:
+    #         form = ContactForm(request.POST)
+    #         if form.is_valid():
+    #             subject = form.cleaned_data['subject']
+    #             from_email = form.cleaned_data['from_email']
+    #             message = form.cleaned_data['message']
+    #             try:
+    #                 m_send = EmailMessage(subject, message, from_email, ['admin@example.com'], cc=['riekeland@gmail.com'], bcc=['riekeland@compnay.com'])
+    #                 m_send.send()
+    #             except BadHeaderError:
+    #                 return HttpResponse('Invalid header found.')
+    #             return redirect('success')
+    #     return render(request, "public_profiles/profile_details.html", {'form': form})
 
 def about(request):
     return render(request, 'public_profiles/about.html', {'title': 'About'})
