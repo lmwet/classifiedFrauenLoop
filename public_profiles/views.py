@@ -38,7 +38,8 @@ class ProfileDetailView(DetailView):
             from_email = form.cleaned_data['from_email']
             message = form.cleaned_data['message']
             try:
-                m_send = EmailMessage(subject, message, from_email, ['admin@example.com'], cc=['riekeland@gmail.com'], bcc=['riekeland@compnay.com'])
+                #print(" What is in pk variable: ", pk)
+                m_send = EmailMessage(subject, message, from_email, [pk])
                 m_send.send()
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
@@ -47,8 +48,6 @@ class ProfileDetailView(DetailView):
 
 def about(request):
     return render(request, 'public_profiles/about.html', {'title': 'About'})
-
-
 
 def successView(request):
     # return HttpResponse('Success! Thank you for your message.')
