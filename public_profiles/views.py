@@ -39,7 +39,9 @@ class ProfileDetailView(DetailView):
             message = form.cleaned_data['message']
             try:
                 #print(" What is in pk variable: ", pk)
-                m_send = EmailMessage(subject, message, from_email, [pk])
+                user = User.pk 
+                # fetch from User the one with id pk
+                m_send = EmailMessage(subject, message, from_email, [user.email])
                 m_send.send()
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
