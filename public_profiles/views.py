@@ -38,9 +38,7 @@ class ProfileDetailView(DetailView):
             from_email = form.cleaned_data['from_email']
             message = form.cleaned_data['message']
             try:
-                #print(" What is in pk variable: ", pk)
-                user = User.pk 
-                # fetch from User the one with id pk
+                user = User.objects.get(id=pk)
                 m_send = EmailMessage(subject, message, from_email, [user.email])
                 m_send.send()
             except BadHeaderError:
