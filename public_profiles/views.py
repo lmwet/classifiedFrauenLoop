@@ -50,6 +50,4 @@ def about(request):
     return render(request, 'public_profiles/about.html', {'title': 'About'})
 
 def successView(request):
-    # return HttpResponse('Success! Thank you for your message.')
-    # here we could also render a success template
     return render(request, 'public_profiles/success.html') 
