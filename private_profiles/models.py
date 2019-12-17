@@ -10,6 +10,7 @@ class Profile(models.Model):
     likes = models.CharField(max_length=250, blank=True)
     dislikes = models.CharField(max_length=250, blank=True)
     github = models.CharField(max_length=250, blank=True)
+    bio = models.CharField(max_length=250, blank=True)
 
  # now need to edit forms, then add to the template
     def __str__(self):

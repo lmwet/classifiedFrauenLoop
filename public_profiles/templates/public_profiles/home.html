@@ -5,6 +5,7 @@
     <div class="profile-item">
         <h1><a href="{% url 'profile-details' profile.id %}">{{ profile.user }}</a></h1>
         <p>Skills: {{ profile.skills }}</p>
+        <p>Short Bio: {{ profile.bio }}</p>
     </div>
     {%  endfor %}
 </div>
