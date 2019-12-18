@@ -29,7 +29,7 @@ class UserUpdateForm(forms.ModelForm):
         fields = ['username', 'email']
 
 
-PROGRAMMING_LANGUAGES_CHOICES = ['Python', 'Ruby', 'Go(lang)']
+PROGRAMMING_LANGUAGES_CHOICES = [('Python', 'Python'), ('Ruby', 'Ruby'), ('Go(lang)', 'Go(lang)'), ('Javascript', 'Javascript'), ('Java','Java'), ('PHP', 'PHP')]
 class ProfileUpdateForm(forms.ModelForm):
     programming_languages = forms.MultipleChoiceField(required=False, widget=forms.CheckboxSelectMultiple, choices=PROGRAMMING_LANGUAGES_CHOICES,)
 
