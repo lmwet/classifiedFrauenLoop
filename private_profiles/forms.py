@@ -13,6 +13,7 @@ class ClassifiedRegistrationForm(UserCreationForm):
                     widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
     password2 = forms.CharField(label='', 
                     widget=forms.PasswordInput(attrs={'placeholder': 'Enter the same password again'}))
+        
 
     class Meta:
         model = User # our model is based on django's User model
@@ -28,8 +29,11 @@ class UserUpdateForm(forms.ModelForm):
         fields = ['username', 'email']
 
 
+PROGRAMMING_LANGUAGES_CHOICES = ['Python', 'Ruby', 'Go(lang)']
 class ProfileUpdateForm(forms.ModelForm):
+    programming_languages = forms.MultipleChoiceField(required=False, widget=forms.CheckboxSelectMultiple, choices=PROGRAMMING_LANGUAGES_CHOICES,)
 
     class Meta():
+    
         model = Profile
-        fields = ['skills', 'languages', 'likes', 'dislikes', 'github']
+        fields = ['skills', 'languages', 'likes', 'dislikes', 'github', 'programming_languages']

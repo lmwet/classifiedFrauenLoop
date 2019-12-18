@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'public_profiles.apps.PublicProfilesConfig',        # public profiles app based on apps class in respective apps.py file
     'private_profiles.apps.PrivateProfilesConfig',      # private profiles app based on apps class in respective apps.py file
     'crispy_forms',                                     # added crispy forms among the apps
+    'fontawesome',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
