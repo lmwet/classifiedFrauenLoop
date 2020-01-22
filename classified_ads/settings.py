@@ -134,4 +134,8 @@ LOGIN_URL = 'login'     # as it is required to log in before accessing the priva
                         # tries to enter the /profiles_developer/-route
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# The email back end we will use
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
