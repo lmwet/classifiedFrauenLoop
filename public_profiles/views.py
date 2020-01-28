@@ -42,7 +42,7 @@ class ProfileDetailView(DetailView):
                 # selects user based on their pk
                 m_send = EmailMessage(subject, message, from_email, [user.email])
                 # [user.email] sends the email to the address specified by the user in their profile
-                m_send.send()
+                m_send.send(fail_silently=False)
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return redirect('success')
