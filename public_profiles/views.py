@@ -1,9 +1,11 @@
 from django.core.mail import send_mail, BadHeaderError, EmailMessage
+from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
-from private_profiles.models import Profile
 from django.views.generic import ListView, DetailView
+
+from private_profiles.models import Profile
+
 from .forms import ContactForm
 
 

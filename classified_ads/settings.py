@@ -133,7 +133,7 @@ LOGIN_URL = 'login'     # as it is required to log in before accessing the priva
                         # avoid a 404, the user is automatically directed to the login page if she 
                         # tries to enter the /profiles_developer/-route
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
